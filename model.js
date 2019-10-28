@@ -14,7 +14,22 @@ var myObject ={
 
 
 const TTTmodel = (function(){
-	var board = [];
+	var getBoard = function(){
+		var grid = [];
+		var singleton = null;
+		if(singleton){
+			return singleton;
+		}
+		else
+		{
+			singleton = function(){
+			return grid;
+		};
+			
+		return singleton;
+		}
+		
+	};
 	var player1 = {isComputer: false};
 	var player2 = {isComputer: false};
 	var numMoves = 0;
@@ -30,7 +45,7 @@ const TTTmodel = (function(){
 	var resetGame = function(){};
 	var getState = function(){
 		var stateObj = {
-			board,
+			board: getBoard(),
 			isPlayer1Computer,
 			isPlayer2Computer,
 			isPlayer1Turn,
