@@ -13,49 +13,48 @@ var myObject ={
 
 
 
-var TTTmodel = (
-	function(){
-		var board = [];
-		var player1 = {isComputer: false};
-		var player2 = {isComputer: false};
-		var numMoves = 0;
-		var isPlayer1Turn = false;
-		var isPlayer2Turn = false;
-		var isGamePaused = true;
-		var hasWinner = false;
-		var isPlayer1Winner = false;
-		var isPlayer2Winner = false;
-		var isTied = false;
-		var mainFunction = this;
-		var tryMove = function({moveTo: number}){};
-		var checkIfValidMove = function({moveTo: number}){};
-		var checkForWinner = function({isPlayer1Turn1, isPlayer2Turn, board}={}){};
-		var resetGame = function(){};
-		var getState = function(){
-			var stateObj = {
-				board,
-				isPlayer1Computer,
-				isPlayer2Computer,
-				isPlayer1Turn,
-				isPlayer2Turn,
-				numMoves,
-				hasWinner,
-				isPlayer1Winner,
-				isPlayer2Winner,
-				isTied
-			};
-			return stateObj;
+const TTTmodel = (function(){
+	var board = [];
+	var player1 = {isComputer: false};
+	var player2 = {isComputer: false};
+	var numMoves = 0;
+	var isPlayer1Turn = false;
+	var isPlayer2Turn = false;
+	var isGamePaused = true;
+	var hasWinner = false;
+	var isPlayer1Winner = false;
+	var isPlayer2Winner = false;
+	var isTied = false;
+	var tryMove = function({moveTo: number}){};
+	var checkIfValidMove = function({moveTo: number}){};
+	var checkForGameOver = function({isPlayer1Turn = false, isPlayer2Turn = false, board}={}){};
+	var resetGame = function(){};
+	var getState = function(){
+		var stateObj = {
+			board,
+			isPlayer1Computer,
+			isPlayer2Computer,
+			isPlayer1Turn,
+			isPlayer2Turn,
+			numMoves,
+			hasWinner,
+			isPlayer1Winner,
+			isPlayer2Winner,
+			isTied
 		};
-		var model = {
-			view: function(){
-				return getState();
-			},
-			move: function(moveTo){
-				return tryMove();
-			},
-			reset: function(){
-				return resetGame();
-			}
-		};
-		return model;
-	})();
+		return stateObj;
+	};
+	var model = {
+		view: function(){
+			return getState();
+		},
+		move: function(moveTo){
+			return tryMove();
+		},
+		reset: function(){
+			return resetGame();
+		}
+	};
+	model.seal();
+	return model;
+})();
