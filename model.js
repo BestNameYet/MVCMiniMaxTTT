@@ -27,38 +27,35 @@ var TTTmodel = (
 		var isPlayer2Winner = false;
 		var isTied = false;
 		var mainFunction = this;
+		var tryMove = function({moveTo: number}){};
+		var checkIfValidMove = function({moveTo: number}){};
+		var checkForWinner = function({isPlayer1Turn1, isPlayer2Turn, board}={}){};
+		var resetGame = function(){};
 		var getState = function(){
 			var stateObj = {
-				board: Array.from(mainFunction.board),
-				isPlayer1Computer: mainFunction.player1.isComputer,
-				isPlayer2Computer: mainFunction.player2.isComputer,
-				isPlayer1Turn: mainFunction.isPlayer1Turn,
-				isPlayer2Turn: mainFunction.isPlayer2Turn,
-				numMoves: mainFunction.numMoves,
-				hasWinner: mainFunction.hasWinner,
-				isPlayer1Winner: mainFunction.isPlayer1Winner,
-				isPlayer2Winner: mainFunction.isPlayer2Winner,
-				isTied: mainFunction.isTied
+				board,
+				isPlayer1Computer,
+				isPlayer2Computer,
+				isPlayer1Turn,
+				isPlayer2Turn,
+				numMoves,
+				hasWinner,
+				isPlayer1Winner,
+				isPlayer2Winner,
+				isTied
 			};
 			return stateObj;
 		};
-		var tryMove({number: number}) = function(){};
-		var checkIfValid({number: number}) = function(){};
-		var checkForWinner({player1, player2, board}={}){};
 		var model = {
-			move: function(number){
-				checkIfValid = function(){};
+			view: function(){
+				return getState();
 			},
-			reset: function(){}
+			move: function(moveTo){
+				return tryMove();
+			},
+			reset: function(){
+				return resetGame();
+			}
 		};
-
-
-
-};//end of model declaration/initializtion
-      return model};//end anonymous function
-    
-    
-    
-  
-  }()
-);
+		return model;
+	})();
