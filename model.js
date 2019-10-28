@@ -20,7 +20,6 @@ const TTTmodel = (function(){
 	var numMoves = 0;
 	var isPlayer1Turn = false;
 	var isPlayer2Turn = false;
-	var isGamePaused = true;
 	var hasWinner = false;
 	var isPlayer1Winner = false;
 	var isPlayer2Winner = false;
