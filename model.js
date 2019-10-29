@@ -23,7 +23,7 @@ const TTTmodel = (function(){
 	var isTied = false;
 	var tryMove = function({moveTo: number}){};
 	var checkIfValidMove = function({moveTo: number}){};
-	var checkForGameOver = function({isPlayer1Turn = false, isPlayer2Turn = false, board}={}){};
+	var checkForGameOver = function({isPlayer1Turn = false, isPlayer2Turn = false}={}){};
 	var resetGame = function(){};
 	var getState = function(){
 		var stateObj = {
