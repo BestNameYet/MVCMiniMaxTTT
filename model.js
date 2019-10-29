@@ -30,8 +30,6 @@ const TTTmodel = (function(){
 		}
 		
 	};
-	var player1 = {isComputer: false};
-	var player2 = {isComputer: false};
 	var numMoves = 0;
 	var isPlayer1Turn = false;
 	var isPlayer2Turn = false;
@@ -46,8 +44,6 @@ const TTTmodel = (function(){
 	var getState = function(){
 		var stateObj = {
 			board: getBoard(),
-			isPlayer1Computer,
-			isPlayer2Computer,
 			isPlayer1Turn,
 			isPlayer2Turn,
 			numMoves,
