@@ -14,16 +14,17 @@ var myObject ={
 
 
 const TTTmodel = (function(){
+	var player1 = [];
+	var player2 = [];
 	var numMoves = 0;
 	var isPlayer1Turn = false;
-	var isPlayer2Turn = false;
 	var hasWinner = false;
 	var isPlayer1Winner = false;
 	var isPlayer2Winner = false;
 	var isTied = false;
 	var tryMove = function({moveTo: number}){};
 	var checkIfValidMove = function({moveTo: number}){};
-	var checkForGameOver = function({isPlayer1Turn = false, isPlayer2Turn = false}={}){};
+	var checkForGameOver = function({player1, player2}={}){};
 	var resetGame = function(){};
 	var getState = function(){
 		var stateObj = {
